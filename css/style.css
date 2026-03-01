@@ -103,4 +103,33 @@ select { padding: 10px; border-radius: 10px; border: 1px solid #d9d9e6; min-widt
   border: 1px solid var(--border);
 }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+
 .tag { font-size: 12px; padding: 4px 8px; border-radius: 999px; background: #f0f0f6; border: 1px solid var(--border); }
+
+/* —— 选中/聚焦 热区高亮（让你看到矩形框） —— */
+.hotspots .hs polygon{
+  fill: rgba(26,115,232,.18);
+  stroke: rgba(0,0,0,.35);
+  stroke-width: 1.5;
+}
+
+/* 鼠标悬停时更明显 */
+.hotspots .hs:hover polygon{
+  stroke: rgba(26,115,232,.95);
+  stroke-width: 3;
+}
+
+/* ✅ 当前选中的热区：红色粗框（最明显） */
+.hotspots .hs[aria-current="true"] polygon{
+  fill: rgba(255, 59, 48, .22);
+  stroke: rgba(255, 59, 48, .98);
+  stroke-width: 5;
+}
+
+/* 键盘聚焦时也要明显（Tab） */
+.hotspots .hs:focus polygon,
+.hotspots .hs:focus-visible polygon{
+  outline: none;
+  stroke: rgba(255, 159, 10, .98);
+  stroke-width: 5;
+}
