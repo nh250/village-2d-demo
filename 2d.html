@@ -33,11 +33,12 @@
           loading="eager"
         />
 
-        <!-- 热区层：注意 viewBox 要与图片像素尺寸一致 -->
+        <!-- 热区层：viewBox 必须与 polygon 坐标体系一致 -->
         <svg
           id="hotspots"
           class="hotspots"
-          viewBox="0 0 943 651"
+          viewBox="0 0 4000 2250"
+          preserveAspectRatio="none"
           aria-label="房屋热区层"
         >
           <!-- 每个房屋热区：用 <a> 包住 polygon，保证可聚焦可键盘操作 -->
@@ -95,4 +96,5 @@
 
   <script src="js/app-2d.js"></script>
 </body>
+
 </html>
