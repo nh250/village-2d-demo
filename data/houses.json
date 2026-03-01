@@ -6,7 +6,7 @@
     "summary": "砖混结构，2层。",
     "photos": [
       "assets/photos/H001_01.jpg"
-    ],
+    ]
   },
   {
     "id": "H002",
@@ -15,7 +15,7 @@
     "summary": "砖混结构，2层。",
     "photos": [
       "assets/photos/H002_01.jpg"
-    ],
+    ]
   },
   {
     "id": "H003",
@@ -24,6 +24,7 @@
     "summary": "砖混结构，2层。",
     "photos": [
       "assets/photos/H003_01.jpg"
-    ],
+    ]
   }
 ]
+
