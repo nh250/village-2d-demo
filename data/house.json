@@ -1,0 +1,29 @@
+[
+  {
+    "id": "H001",
+    "name": "H001 - 张炳强家",
+    "tags": ["2001-2010年建成"],
+    "summary": "砖混结构，2层。",
+    "photos": [
+      "assets/photos/H001_01.jpg"
+    ],
+  },
+  {
+    "id": "H002",
+    "name": "H002 - 张晓明家",
+    "tags": ["2001-2010年建成"],
+    "summary": "砖混结构，2层。",
+    "photos": [
+      "assets/photos/H002_01.jpg"
+    ],
+  },
+  {
+    "id": "H003",
+    "name": "H003 - 张浩坤家",
+    "tags": ["2001-2010年建成"],
+    "summary": "砖混结构，2层。",
+    "photos": [
+      "assets/photos/H003_01.jpg"
+    ],
+  }
+]
