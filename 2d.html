@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2D 建筑足迹平面图</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header" role="banner">
+    <div class="wrap row">
+      <div>
+        <h1 class="h2">2D 建筑足迹平面图</h1>
+        <p class="muted">点击房屋热区查看信息；按 Tab 可聚焦热区，Enter/空格打开。</p>
+      </div>
+      <nav aria-label="页面导航">
+        <a class="btn" href="index.html">返回首页</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap grid-2" role="main">
+    <!-- 左侧：航拍图 + SVG 热区 -->
+    <section class="card" aria-label="航拍图与房屋热区">
+      <div class="map-wrap" id="mapWrap">
+        <!-- 底图 -->
+        <img
+          id="orthoImg"
+          src="assets/orthophoto.jpg"
+          alt="村庄建筑足迹底图"
+          loading="eager"
+        />
+
+        <!-- 热区层：viewBox 必须与 polygon 坐标体系一致 -->
+        <svg
+          id="hotspots"
+          class="hotspots"
+          viewBox="0 0 934 651"
+          preserveAspectRatio="none"
+          aria-label="房屋热区层"
+        >
+          <!-- 每个房屋热区：用 <a> 包住 polygon，保证可聚焦可键盘操作 -->
+          <!-- data-id 要对应 data/houses.json 里的 id -->
+          <a href="#"
+             class="hs"
+             role="button"
+             tabindex="0"
+             aria-label="打开房屋 H001 详情"
+             data-id="H001">
+            <polygon points="695,161,748,161,748,168 695,168"></polygon>
+          </a>
+
+          <a href="#"
+             class="hs"
+             role="button"
+             tabindex="0"
+             aria-label="打开房屋 H002 详情"
+             data-id="H002">
+            <polygon points="193,159,241,159,241,172,193,172"></polygon>
+          </a>
+
+          <a href="#"
+             class="hs"
+             role="button"
+             tabindex="0"
+             aria-label="打开房屋 H003 详情"
+             data-id="H003">
+            <polygon points="246,451,273,451,273,474,246,474"></polygon>
+          </a>
+        </svg>
+      </div>
+
+      <div class="toolbar">
+        <label class="muted" for="houseSelect">房屋列表：</label>
+        <select id="houseSelect" aria-label="房屋列表选择">
+          <option value="">— 请选择 —</option>
+        </select>
+        <button id="clearBtn" class="btn secondary" type="button">清除选择</button>
+      </div>
+    </section>
+
+    <!-- 右侧：房屋详情 -->
+    <aside class="card" aria-label="房屋详情面板">
+      <div id="detail" class="detail">
+        <h2 class="h3">房屋详情</h2>
+        <p class="muted">请选择左侧任意房屋热区。</p>
+      </div>
+
+      <div class="card subtle">
+        <p class="muted">下一步可接入 GitHub Issues 表单：提交图片与描述。</p>
+      </div>
+    </aside>
+  </main>
+
+  <script src="js/app-2d.js"></script>
+</body>
+
+</html>
+
+
+
+
