@@ -1,0 +1,176 @@
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #111;
+  --muted: #555;
+  --border: #e7e7ef;
+  --focus: #1a73e8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a { color: inherit; }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 16px; }
+
+.site-header { background: #fff; border-bottom: 1px solid var(--border); }
+.site-header h1 { margin: 0 0 6px; font-size: 20px; }
+.h2 { margin: 0 0 6px; font-size: 18px; }
+.h3 { margin: 0 0 8px; font-size: 16px; }
+.h4 { margin: 0 0 6px; font-size: 14px; }
+
+.muted { color: var(--muted); line-height: 1.6; }
+
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+}
+
+.card.subtle { background: #fafafa; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 360px; gap: 12px; }
+@media (max-width: 980px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #d9d9e6;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn.secondary { background: #fff; color: #111; }
+
+.btn:focus, .hs:focus {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  background: #fff;
+  border: 2px solid var(--focus);
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.skip-link:focus { left: 16px; z-index: 9999; }
+
+/* =========================
+   ✅ 底图 IMG + 热区 SVG 对齐关键
+   ========================= */
+
+/* 关键：容器高度完全跟随 IMG，避免任何 16:9 撑高/留白导致偏移 */
+.map-wrap {
+  position: relative;
+  display: inline-block; /* ✅ 让盒子按图片自然高度撑开 */
+  width: 100%;
+  line-height: 0;        /* ✅ 消除 img baseline 产生的底部 3~4px 空隙 */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+/* 底图：等比例缩放 */
+#orthoImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+/* 热区层：严格覆盖在图片上 */
+.hotspots {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* =========================
+   热区样式（统一一套，避免覆盖冲突）
+   ========================= */
+
+.hotspots .hs polygon {
+  fill: rgba(26, 115, 232, 0.18);
+  stroke: rgba(0, 0, 0, 0.35);
+  stroke-width: 1.5;
+  cursor: pointer;
+}
+
+.hotspots .hs:hover polygon {
+  fill: rgba(26, 115, 232, 0.28);
+  stroke: rgba(26, 115, 232, 0.95);
+  stroke-width: 3;
+}
+
+/* ✅ 当前选中热区：红色粗框 */
+.hotspots .hs[aria-current="true"] polygon {
+  fill: rgba(255, 59, 48, 0.22);
+  stroke: rgba(255, 59, 48, 0.98);
+  stroke-width: 5;
+}
+
+/* 键盘聚焦（Tab） */
+.hotspots .hs:focus polygon,
+.hotspots .hs:focus-visible polygon {
+  outline: none;
+  stroke: rgba(255, 159, 10, 0.98);
+  stroke-width: 5;
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #d9d9e6;
+  min-width: 180px;
+}
+
+.detail img {
+  max-width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+
+.tag {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #f0f0f6;
+  border: 1px solid var(--border);
+}
